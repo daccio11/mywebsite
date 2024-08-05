@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benjamin Daccione's Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #444;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        .container {
+            padding: 2rem;
+            padding-bottom: 5rem; /* Add padding to the bottom */
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .blog-post {
+            border-bottom: 1px solid #ccc;
+            padding: 1rem 0;
+        }
+        .blog-post a {
+            text-decoration: none;
+            color: #333;
+        }
+        .blog-post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Benjamin Daccione's Blog</h1>
+        <p>Welcome to my blog! Here, I share my insights and experiences in Cyber Security.</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="blog.html">Blog Posts</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">My Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="blog">
+            <h2>Blog Posts</h2>
+            <div class="blog-posts">
+                <!-- Blog posts will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Benjamin Daccione. All rights reserved.</p>
+    </footer>
+    <script>
+        async function fetchBlogPosts() {
+            const response = await fetch('blog-posts.json');
+            const posts = await response.json();
+            const blogPostsContainer = document.querySelector('.blog-posts');
+
+            posts.forEach(post => {
+                const blogPost = document.createElement('div');
+                blogPost.classList.add('blog-post');
+                blogPost.innerHTML = `
+                    <h3><a href="${post.url}">${post.title}</a></h3>
+                    <p><em>${post.date}</em></p>
+                    <p>${post.excerpt}</p>
+                `;
+                blogPostsContainer.appendChild(blogPost);
+            });
+        }
+
+        fetchBlogPosts();
+    </script>
+</body>
+</html>
