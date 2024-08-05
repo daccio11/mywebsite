@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Benjamin Daccione's Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #444;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #555;
+        }
+        .container {
+            padding: 2rem;
+            padding-bottom: 5rem;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .project {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background: #f9f9f9;
+            transition: transform 0.2s;
+        }
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .project-info {
+            padding: 1rem;
+        }
+        .project h3 {
+            margin: 0.5rem 0;
+        }
+        .project a {
+            text-decoration: none;
+            color: #333;
+        }
+        .project:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Projects</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="blog.html">Blog Posts</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">My Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid" id="project-grid">
+                <!-- Project items will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Benjamin Daccione. All rights reserved.</p>
+    </footer>
+    <script>
+        async function fetchProjects() {
+            const response = await fetch('projects.json');
+            const projects = await response.json();
+            const projectGrid = document.getElementById('project-grid');
+
+            projects.forEach(project => {
+                const projectItem = document.createElement('div');
+                projectItem.classList.add('project');
+                projectItem.innerHTML = `
+                    <a href="${project.url}" target="_blank">
+                        <img src="${project.image}" alt="${project.title}">
+                        <div class="project-info">
+                            <h3>${project.title}</h3>
+                        </div>
+                    </a>
+                `;
+                projectGrid.appendChild(projectItem);
+            });
+        }
+
+        fetchProjects();
+    </script>
+</body>
+</html>
