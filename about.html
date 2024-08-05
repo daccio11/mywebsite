@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Benjamin Daccione</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        nav {
+            margin: 0;
+            padding: 1rem;
+            text-align: center;
+            background: #444;
+            border-radius: 0 0 10px 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            position: relative;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: #333;
+            border-radius: 5px 0 0 5px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .section p {
+            margin: 10px 0;
+        }
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Benjamin Daccione</h1>
+            <p>Cyber Security Student</p>
+        </header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="blog.html">Blog Posts</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">My Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <section class="section">
+            <h2>Education</h2>
+            <p><strong>Marshall University</strong> - B.S. Cyber Forensics & Security</p>
+        </section>
+        <section class="section">
+            <h2>Experience</h2>
+            <p><strong>Network Security Intern</strong> - Gained hands-on experience in securing networks and mitigating threats.</p>
+            <p><strong>Freelance Ethical Hacker</strong> - Conducted penetration tests and vulnerability assessments for various clients.</p>
+        </section>
+        <section class="section">
+            <h2>Skills</h2>
+            <p><strong>Network Security:</strong> Proficient in securing and monitoring network infrastructures.</p>
+            <p><strong>Cryptography:</strong> Strong understanding of encryption algorithms and protocols.</p>
+            <p><strong>Ethical Hacking:</strong> Skilled in identifying and exploiting vulnerabilities to improve security measures.</p>
+            <p><strong>Programming:</strong> Experience with Python and proficient in other languages.</p>
+        </section>
+    </div>
+</body>
+</html>
